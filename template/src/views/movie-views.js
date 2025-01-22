@@ -1,16 +1,9 @@
 import { renderFavoriteStatus } from '../events/favorites-events.js';
 
-export const toMoviesFromCategoryView = (category, movies) => `
-<div id="movies">
-  <h1>${category.name} movies:</h1>
-  <div class="content">
-    ${movies.map(toMovieSimple).join('\n')}
-  </div>
-</div>
-`;
+ 
 
 export const toSingleMovieView = (movie) => toMovieDetailed(movie);
-
+//gifs
 export const toMovieSimple = (movie) => `
   <div class="movie-item">
     <h3 class="movie-title">${movie.title}</h3>
@@ -21,7 +14,7 @@ export const toMovieSimple = (movie) => `
     ${renderFavoriteStatus(movie.id)}
   </div>
 `;
-
+// Gift DEtail
 const toMovieDetailed = (movie) =>`
 <div class="toMovieDetailed-movie-item">
   <h3 class="toMovieDetailed-movie-title">${movie.title} (${movie.year})</h3>

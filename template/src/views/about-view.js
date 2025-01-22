@@ -1,3 +1,4 @@
+//about
 export const toAboutView = () => `
 <div id="about">
   <div class="about-area">

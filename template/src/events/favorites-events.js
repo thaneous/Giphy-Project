@@ -1,7 +1,7 @@
 import { EMPTY_HEART, FULL_HEART } from '../common/constants.js';
 import { addFavorite, getFavorites, removeFavorite } from '../data/favorites.js';
 import { q } from './helpers.js';
-
+//favoris gifs
 export const toggleFavoriteStatus = (movieId) => {
   const favorites = getFavorites();
   const heartSpan = q(`span[data-movie-id="${movieId}"]`);

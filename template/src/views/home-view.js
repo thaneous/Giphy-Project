@@ -1,3 +1,4 @@
+//Trending gifs
 export const toHomeView = () => `
 <div id="home">
   <h1>Trending</h1>
