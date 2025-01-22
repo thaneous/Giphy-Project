@@ -20,7 +20,6 @@
 - Search GIFs: Users can search for specific GIFs using keywords.
 - GIF Details: Users can see GIF Details.
 - Upload GIFs: Users can upload GIFs directly to their Giphy profile using the Giphy API.
-<br>
 - Add to Favorites: Users can add GIFs to their favorites list for quick access.
 - Display Favorites: Users can see their uploaded GIFs on their favorites list.
 
