@@ -51,13 +51,6 @@ export const renderMovieDetails = (id = null) => {
   q(CONTAINER_SELECTOR).innerHTML = HTML;
 };
 
-export const renderCategory = (categoryId = null) => {
-  const category = loadCategory(categoryId);
-  const movie = loadMovies(categoryId);
-  const HTML = toMoviesFromCategoryView(category, movie);
-
-  q(CONTAINER_SELECTOR).innerHTML = HTML;
-};
 
 // private functions
 
