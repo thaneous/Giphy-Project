@@ -1,4 +1,4 @@
-export const TRENDING = 'trending';
+export const HOME = 'home';
 
 export const FAVORITES = 'favorites';
 
