@@ -67,3 +67,10 @@ export const getGifByID = (id) => `https://api.giphy.com/v1/gifs/${id}?api_key=$
  */
 export const uploadedIdsEndpoint = (...ids) => `
 https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${ids}`;
+
+////missing functions
+export const getNaskoGif = () => ``;
+
+export const getMartiGif = () => ``;
+
+export const getNikiGif = () => ``;
