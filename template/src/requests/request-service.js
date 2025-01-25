@@ -1,44 +1,32 @@
-import {
-  getCategories,
-  getMoviesGeneralInfo,
-  getMovieById,
-  getCategory,
-  searchMovies,
-} from '../data/movies.js';
 
-
-export const loadCategories = () => {
-  const categories = getCategories();
-  return categories;
-
-};
-
-export const loadCategory = (id = null) => {
-  const category = getCategory(id);
-
-  return category;
-};
-
-export const loadMovies = (categoryId = null) => {
-  const movieGeneralInfo = getMoviesGeneralInfo(categoryId);
-  return movieGeneralInfo;
-};
-
-export const loadSingleMovie = (id) => {
-  const movie = getMovieById(id);
-
-  return movie;
-};
-
-export const loadSearchMovies = (searchTerm = '') => {
-  const searchedMovies = searchMovies(searchTerm);
-  return searchedMovies;
-};
 import { API_KEY, getNaskoGif, getMartiGif, getNikiGif, uploadedIdsEndpoint } from '../common/constants.js';
 import { getSearchGifs, getTrendingURL, getGifByID } from '../common/constants.js';
 ///////////// needs implementation
 import { addUploadedGif, getUploadedIds, renderFailure, renderSuccess, renderUploadedGifs } from '../events/upload-events.js';
 /////////////
+/**
+ * Loads GIFs based on the search term from the Giphy API.
+ *
+ * @async
+ * @function loadSearchGifs
+ * @param {string} [searchTerm=''] - The term to search for GIFs.
+ * @returns {Promise<Object>} The response object containing the search results.
+ * @throws {Error} If the fetch request fails.
+ * @author Nikolay Kozheykov
+ */
+export const loadSearchGifs = async (searchTerm = '') => {
+  try {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm&limit=10`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch search GIFs");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching GIFs:", error);
+    return { data: [] };
+  }
+};
+
 
 /**
  * Uploads a GIF to Giphy
@@ -89,13 +77,7 @@ export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') =
  * @return Array of objects with the data about each gif
  */
 
-export const loadSearchGifs = async (searchTerm) => {
-  const response = await fetch(getSearchGifs(searchTerm));
-  const result = await response.json();
-
-  return result.data;
-};
-
+ 
 export const loadTrendingGifs = async () => {
   try {
     const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm&limit=20`);

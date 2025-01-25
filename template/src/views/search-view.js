@@ -1,11 +1,13 @@
-import { toMovieSimple } from './movie-views.js';
-
-//serach gifs
-export const toSearchView = (movies, searchTerm) => `
-<div id="movies">
-  <h1>Movies found for "${searchTerm}":</h1>
+export const toSearchView = (gifs, searchTerm) => `
+<div id="Search">
+  <h1>Search for ${searchTerm}</h1>
   <div class="content">
-    ${movies.map(toMovieSimple).join('\n') || '<p>Add some movies to favorites to see them here.</p>'}
+    ${gifs.data.map(gif => `
+      <div class="Search-item">
+        <img src="${gif.images.downsized_large.url}" alt="${gif.title}" />
+        <p>${gif.title}</p>
+      </div>
+    `).join('')}
   </div>
 </div>
 `;
