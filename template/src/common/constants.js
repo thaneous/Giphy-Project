@@ -2,6 +2,8 @@ export const HOME = 'home';
 
 export const FAVORITES = 'favorites';
 
+export const TRENDING = 'trending';
+
 export const ABOUT = 'about';
 
 export const UPLOAD = 'upload';
