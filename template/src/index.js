@@ -1,7 +1,7 @@
 import { API_KEY, HOME, UPLOAD } from './common/constants.js';
 import { q } from './events/helpers.js';
-import { loadPage, renderUploadedGifs } from './events/navigation-events.js';
-import { renderFailure, renderLoadingView } from './events/upload-events.js';
+import { loadPage } from './events/navigation-events.js';
+import { renderFailure, renderLoadingView, renderUploadedGifs } from './events/upload-events.js';
 import { uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
     }
-    
+
     // upload events
     if (event.target.classList.contains('try-again') ||
     event.target.classList.contains('new-upload')) {
