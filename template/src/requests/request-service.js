@@ -39,31 +39,25 @@ export const loadSearchGifs = async (searchTerm = '') => {
  */
 export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') => {
   try {
-    const response = await fetch(getUploadedURL(url, sourceUrl, tags),
-      {
-        method: 'POST',
-        body: formData,
-      });
+    const response = await fetch(getUploadedURL(url, sourceUrl, tags), {
+      method: 'POST',
+      body: formData,
+    });
 
     const result = await response.json();
-
     const id = await result.data.id;
 
     if (url && response.status === 200) {
-
       renderSuccess(url);
       addUploadedGif(id);
       await renderUploadedGifs();
-
     } else if (sourceUrl && response.status === 200) {
       renderSuccess(sourceUrl);
       addUploadedGif(id);
       await renderUploadedGifs();
-
     } else if (response.status >= 400 && response.status <= 500) {
       renderFailure(response.status);
-    };
-
+    }
   } catch (error) {
     console.error(error);
     renderFailure();

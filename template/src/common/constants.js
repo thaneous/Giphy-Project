@@ -51,8 +51,9 @@ https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
  * @param {string} tags - comma separated list of tags
  * @return {string} The endpoint link
  */
-export const getUploadedURL = (url = '', sourceUrl = '', tags) => `
-https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&file=${url}&source_image_url=${sourceUrl}&tags=${tags}`;
+export const getUploadedURL = (url, sourceUrl, tags) => {
+  return `https://api.giphy.com/v1/gifs/upload?api_key=${API_KEY}&source_image_url=${sourceUrl}&tags=${tags}`;
+};
 
 
 /**

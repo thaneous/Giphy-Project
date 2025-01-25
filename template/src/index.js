@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPage(UPLOAD);
     (async () => await renderUploadedGifs())();
   }
-
+    // upload handling
   if (event.target.classList.contains('upload-page')) {
     renderUploadedGifs();
   }

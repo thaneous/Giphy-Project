@@ -10,32 +10,43 @@ import { toUploadView } from '../views/upload-view.js';
 
 // public API
 export const loadPage = (page = '') => {
+
   switch (page) {
-    case HOME:
-      setActiveNav(HOME);
-      return renderHome();
 
-    case TRENDING:
-      setActiveNav(TRENDING);
-      return renderTrending();
+  case TRENDING:
+    setActiveNav(TRENDING);
+    return renderTrending();
 
-    case ABOUT:
-      setActiveNav(ABOUT);
-      return renderAbout();
+  case FAVORITES:
+    setActiveNav(FAVORITES);
+    return renderFavorites();
 
- 
-    case FAVORITES:
-      setActiveNav(FAVORITES);
-      return renderFavorites();
-    
-    case UPLOAD:
-        setActiveNav(UPLOAD);
-        return renderUpload();
+  case UPLOAD:
+    setActiveNav(UPLOAD);
+    return renderUpload();
 
-    /* if the app supports error logging, use default to log mapping errors */
-    default:
-      return null;
+  case ABOUT:
+    setActiveNav(ABOUT);
+    renderAbout();
+
+    // Add event listeners to the names
+    document.getElementById('Atanas').addEventListener('click', () => {
+      renderAboutGif('Atanas');
+    });
+
+    document.getElementById('Martin').addEventListener('click', () => {
+      renderAboutGif('Martin');
+    });
+
+    document.getElementById('Nikolai').addEventListener('click', () => {
+      renderAboutGif('Nikolai');
+    });
+    break;
+
+    /* if the app supports error login, use default to log mapping errors */
+  default: return null;
   }
+
 };
 
  
