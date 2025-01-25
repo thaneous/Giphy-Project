@@ -6,6 +6,7 @@ import {
   searchMovies,
 } from '../data/movies.js';
 
+
 export const loadCategories = () => {
   const categories = getCategories();
   return categories;
@@ -96,11 +97,17 @@ export const loadSearchGifs = async (searchTerm) => {
 };
 
 export const loadTrendingGifs = async () => {
-  const response = await fetch(getTrendingURL(30));
-  const result = await response.json();
-
-  return result.data;
-};
+  try {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm&limit=20`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch trending GIFs");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching GIFs:", error);
+    return { data: [] };
+  }
+}
 
 
 /**
