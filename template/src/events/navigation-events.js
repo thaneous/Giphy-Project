@@ -1,10 +1,11 @@
-import { CONTAINER_SELECTOR, HOME, ABOUT, FAVORITES, TRENDING } from '../common/constants.js';
+import { CONTAINER_SELECTOR, HOME, ABOUT, FAVORITES, TRENDING, UPLOAD } from '../common/constants.js';
 import { loadTrendingGifs } from '../requests/request-service.js';
 import { toHomeView } from '../views/home-view.js';
 import { q, setActiveNav } from './helpers.js';
 import { toAboutView } from '../views/about-view.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { renderUploadedGifs } from './upload-events.js';
+import { toUploadView } from '../views/upload-view.js';
 
 
 // public API
