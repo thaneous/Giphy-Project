@@ -1,11 +1,5 @@
-import {
-  CONTAINER_SELECTOR,
-  HOME,
-  ABOUT,
-  CATEGORIES,
-  FAVORITES,
-} from '../common/constants.js';
-import { loadCategories } from '../requests/request-service.js';
+import { CONTAINER_SELECTOR, HOME, ABOUT, CATEGORIES, FAVORITES, TRENDING } from '../common/constants.js';
+import { loadCategories, loadTrendingGifs } from '../requests/request-service.js';
 import { toHomeView } from '../views/home-view.js';
 import {
   toMoviesFromCategoryView,
@@ -18,6 +12,7 @@ import { toAboutView } from '../views/about-view.js';
 import { getMovieById } from '../data/movies.js';
 import { getFavorites } from '../data/favorites.js';
 import { toFavoritesView } from '../views/favorites-view.js';
+import { toTrendingView } from '../views/trending-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -25,6 +20,10 @@ export const loadPage = (page = '') => {
     case HOME:
       setActiveNav(HOME);
       return renderHome();
+
+    case ABOUT:
+      setActiveNav(TRENDING);
+      return renderTrending();
 
     case ABOUT:
       setActiveNav(ABOUT);
@@ -57,6 +56,15 @@ export const renderMovieDetails = (id = null) => {
 const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
+
+// render trending
+const renderTrending = () => {
+  loadTrendingGifs()
+  .then((data) => {
+    q(CONTAINER_SELECTOR).innerHTML = toTrendingView(data);
+  });
+};
+
 
 const renderCategories = () => {
   const category = loadCategories();
