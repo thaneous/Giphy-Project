@@ -1,9 +1,6 @@
-
-import { API_KEY, getNaskoGif, getMartiGif, getNikiGif, uploadedIdsEndpoint } from '../common/constants.js';
-import { getSearchGifs, getTrendingURL, getGifByID } from '../common/constants.js';
-///////////// needs implementation
+import { API_KEY, getUploadedURL } from '../common/constants.js';
 import { addUploadedGif, getUploadedIds, renderFailure, renderSuccess, renderUploadedGifs } from '../events/upload-events.js';
-/////////////
+
 /**
  * Loads GIFs based on the search term from the Giphy API.
  *
@@ -12,7 +9,6 @@ import { addUploadedGif, getUploadedIds, renderFailure, renderSuccess, renderUpl
  * @param {string} [searchTerm=''] - The term to search for GIFs.
  * @returns {Promise<Object>} The response object containing the search results.
  * @throws {Error} If the fetch request fails.
- * @author Nikolay Kozheykov
  */
 export const loadSearchGifs = async (searchTerm = '') => {
   try {
@@ -26,7 +22,6 @@ export const loadSearchGifs = async (searchTerm = '') => {
     return { data: [] };
   }
 };
-
 
 /**
  * Uploads a GIF to Giphy
@@ -70,8 +65,6 @@ export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') =
  * @param {string} searchTerm - the gif that the user is looking for
  * @return Array of objects with the data about each gif
  */
-
- 
 export const loadTrendingGifs = async () => {
   try {
     const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm&limit=20`);
@@ -83,14 +76,12 @@ export const loadTrendingGifs = async () => {
     console.error("Error fetching GIFs:", error);
     return { data: [] };
   }
-}
-
+};
 
 /**
  * Fetches a random GIF from the Giphy API
  * @return {Promise<Object>} A promise that resolves to an object containing the data of the random GIF
  */
-
 export const loadRandomGif = async () => {
   try {
     const response = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`);
@@ -101,7 +92,6 @@ export const loadRandomGif = async () => {
     console.error('Error fetching random GIF', error);
   }
 };
-
 
 /**
  * Fetches an array of GIF objects from the Giphy API by their IDs
@@ -119,7 +109,6 @@ export const fetchFavorites = async (gifIds) => {
   }
 };
 
-
 /**
  * Fetches the details of a single GIF by its ID
  * @param {string} id The ID of the GIF to fetch
@@ -127,7 +116,6 @@ export const fetchFavorites = async (gifIds) => {
  * @throws {Error} If the request fails
  */
 export const loadDetails = async (id) => {
-
   const response = await fetch(getGifByID(id));
   const result = await response.json();
 
@@ -137,7 +125,6 @@ export const loadDetails = async (id) => {
 
   return result.data;
 };
-
 
 /**
  * Fetches the GIFs uploaded by the user from the Giphy API
@@ -151,7 +138,6 @@ export const loadUploadedGifs = async () => {
 
   return result.data;
 };
-
 
 /**
  * Fetches a GIF by name from the Giphy API
