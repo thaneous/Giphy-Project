@@ -1,6 +1,8 @@
-import { HOME } from './common/constants.js';
+import { API_KEY, HOME, UPLOAD } from './common/constants.js';
 import { q } from './events/helpers.js';
-import { loadPage } from './events/navigation-events.js';
+import { loadPage, renderUploadedGifs } from './events/navigation-events.js';
+import { renderFailure, renderLoadingView } from './events/upload-events.js';
+import { uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
     }
+    
+    // upload events
+    if (event.target.classList.contains('try-again') ||
+    event.target.classList.contains('new-upload')) {
+    loadPage(UPLOAD);
+    (async () => await renderUploadedGifs())();
+  }
+
+  if (event.target.classList.contains('upload-page')) {
+    renderUploadedGifs();
+  }
+
 
     // // show category events
     // if (event.target.classList.contains('view-category-btn')) {
@@ -33,4 +47,38 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   loadPage(HOME);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // upload events
+  document.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const fileInput = q('#file');
+    const tags = q('#tags').value.trim();
+    let urlInput = q('#url').value;
+
+    let url;
+    const formData = new FormData();
+    formData.append('api_key', API_KEY);
+
+    if (urlInput) {
+      uploadGif(url = '', urlInput, tags, formData);
+      renderLoadingView();
+    } else if (!urlInput && fileInput) {
+      const file = fileInput.files[0];
+      if (!file) {
+        return renderFailure();
+      }
+
+      url = URL.createObjectURL(file);
+      formData.append('file', file, 'giphy.gif');
+
+      uploadGif(url, urlInput = '', tags, formData);
+      renderLoadingView();
+    }
+    return 'Ok!';
+  });
+
+  loadPage(UPLOAD);
 });

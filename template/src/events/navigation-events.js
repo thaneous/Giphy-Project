@@ -1,9 +1,11 @@
 import { CONTAINER_SELECTOR, HOME, ABOUT, FAVORITES, TRENDING } from '../common/constants.js';
 import { loadTrendingGifs } from '../requests/request-service.js';
 import { toHomeView } from '../views/home-view.js';
- import { q, setActiveNav } from './helpers.js';
-  import { toAboutView } from '../views/about-view.js';
-   import { toTrendingView } from '../views/trending-view.js';
+import { q, setActiveNav } from './helpers.js';
+import { toAboutView } from '../views/about-view.js';
+import { toTrendingView } from '../views/trending-view.js';
+import { renderUploadedGifs } from './upload-events.js';
+
 
 // public API
 export const loadPage = (page = '') => {
@@ -24,6 +26,10 @@ export const loadPage = (page = '') => {
     case FAVORITES:
       setActiveNav(FAVORITES);
       return renderFavorites();
+    
+    case UPLOAD:
+        setActiveNav(UPLOAD);
+        return renderUpload();
 
     /* if the app supports error logging, use default to log mapping errors */
     default:
@@ -46,6 +52,12 @@ const renderTrending = () => {
   .then((data) => {
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(data);
   });
+};
+
+//render upload
+const renderUpload = () => {
+  q(CONTAINER_SELECTOR).innerHTML = toUploadView();
+  renderUploadedGifs();
 };
 
 
