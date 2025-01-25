@@ -42,10 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // search events
-  q('input#search').addEventListener('input', async e => {
-    await renderSearchItems(e.target.value);
+  const searchInput = document.querySelector('input#search');
+  const searchButton = document.querySelector('#searchButton');
+    searchButton.addEventListener('click', async () => {
+    const query = searchInput.value; 
+    await renderSearchItems(query);
   });
-
   loadPage(HOME);
 });
 
