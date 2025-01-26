@@ -3,39 +3,42 @@ body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgb(24, 24, 24);
+    background-color: rgba(18,18,18,255);
     font-family: 'Roboto', sans-serif;
 }
 
 .navbar {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    background-color: #333;
-    width: 100%;
+    padding: 1%;
+    background-color: rgba(18,18,18,255);
+    width: 98%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar img {
     height: 40px;
 }
 
-.navbar input[type="text"] {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px;
-    width: 50%;
-    height: 4vh;
+.nav-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
 }
+ 
 
-/* Trending Button */
+/* Nav Button */
 .nav-link {
     text-decoration: none;
     width: auto;
     height: auto;
-    border-radius: 7px;
+    border-radius: 2px;
     padding: 10px 20px;
     margin: 15px;
     color: white;
@@ -43,13 +46,18 @@ body {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: large;
+    font-family: "Roboto", serif;
+    font-weight: 500;
+    font-size: 18px;
 
 }
 
-.nav-link:hover {
-    background-color: darkviolet;
-}
+ 
+.bth-upload{
+    background-color: #a024c0;
 
+}
 
 
 @media (max-width: 768px) {
@@ -69,21 +77,46 @@ body {
 }
  
 
-#container {
-    grid-area: container;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    color: white;
-  }
-/* #container {
+ 
+ /* Search Bar Styles */
+ 
+.SearchBox {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin-top: auto;
-    height: 80%;
-} */
+    flex-direction: row;
+    width: 80%;
+    height: fit-content;
+}
+#search {
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 100%;
+    height: 6vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: lighter;
+    font-size: 21px; 
+    color: #000;
+}
+#searchButton {
+    width: 12.5%;
+    height: auto;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background: rgb(253,29,239);
+    background: linear-gradient(28deg, rgba(253,29,239,1) 0%, rgba(252,176,69,1) 100%);
+
+
+}
+#searchButton:hover {
+ cursor: pointer;
+ opacity: 0.95;
+}
+
+#search::placeholder {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    color: #888; 
+    padding: 16px 00;
+}
 /* About styles */
 
 #about {
@@ -100,3 +133,26 @@ body {
 }
 
 /* End about styles */
+.error-mess-div {
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(28deg, rgba(253,29,239,1) 0%, rgba(252,176,69,1) 100%);
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin: 1rem;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error-mess {
+    color: white;
+    padding: 1rem;
+    font-size: 24px;
+ 
+}
+

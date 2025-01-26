@@ -8,29 +8,37 @@
   <link rel="icon" href="/template/src/images/Untitled-2.svg" type="image/png">
   <link rel="stylesheet" href="./styles/main.css">
   <link rel="stylesheet" href="./styles/gifs-order.css">
+  <link rel="stylesheet" href="./styles/gif-details.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <script src="https://kit.fontawesome.com/6d58a41734.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div id="app">
-    <nav class="navbar">
-      <a href="#" id="homes" class="nav-link" data-page="home"><img src="images/logo-nav.png" alt=""></a>
+    <nav id="navbar" class="navbar">
+      <div class="nav-buttons">
+      <a href="#" id="homes" data-page="home"><img src="images/logo-nav.png" alt=""></a>
        <a href="#" class="nav-link" data-page="favorites">Favorites</a>
-      <a href="#" class="nav-link" data-page="upload">Upload</a>
-      <input id="search" type="text" placeholder="Search for gifs">
-      <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
-            <a href="#" class="nav-link" data-page="about">About</a>
+       <a href="#" class="nav-link" data-page="about">About</a>
+       <a href="#" class="nav-link bth-upload" data-page="upload">Upload</a>
+      </div>
+     <div class="SearchBox">
+      <input id="search" type="text" placeholder="Search all the gift">
+      <button id="searchButton" type="submit">    
+        <i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #ffffff;"></i>
+      </button>
+    </div> 
+
     </nav>
     <div id="container">
       <!-- start placeholders -->
        
         <!-- end placeholders -->
       </div>
-      <footer>Footer</footer>
-    </div>
+     </div>
 
     <!-- app -->
     <script src="./src/index.js" type="module"></script>

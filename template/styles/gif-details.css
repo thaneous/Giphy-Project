@@ -1,0 +1,95 @@
+.details-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.gif-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(28deg, rgba(253,29,239,1) 0%, rgba(252,176,69,1) 100%);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.gif-image {
+    
+    width: fit-content;
+    height: auto;
+    border-radius: 8px;
+}
+
+.gif-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.gif-username {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.gif-rating {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.user-details {
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(28deg, rgba(253,29,239,1) 0%, rgba(252,176,69,1) 100%);
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin: 1rem;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.user-username {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.user-display-name {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+
+.side-button{
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(28deg, rgba(253,29,239,1) 0%, rgba(252,176,69,1) 100%);
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin: 1rem;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.fav{
+     margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500    ;
+}

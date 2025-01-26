@@ -1,9 +1,21 @@
   /* Trending order */
-
+  .section-title {
+    display: flex;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 400;
+    color: white;
+  }
+  .section-info {
+    display: flex;
+    align-items: center; 
+    gap: 0.5rem; 
+}
 #trending {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
+    width: 80%;
   }
   
   .content {
@@ -30,18 +42,18 @@
   }
 
   /* Search order */
-  #search {
+  .search {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
+    width: 80%;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 18px; 
+    color: #000;
   }
   
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
+
   
   .search-item {
     width: 300px;
