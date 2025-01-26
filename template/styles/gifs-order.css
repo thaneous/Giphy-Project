@@ -1,9 +1,20 @@
   /* Trending order */
-
+  .section-title {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+  }
+  .section-info {
+    display: flex;
+    align-items: center; 
+    gap: 0.5rem; 
+}
 #trending {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
+    width: 80%;
   }
   
   .content {
