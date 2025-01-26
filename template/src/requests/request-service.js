@@ -1,6 +1,6 @@
-import { API_KEY, getUploadedURL } from '../common/constants.js';
+import { API_KEY, getUploadedURL, getGifByID } from '../common/constants.js';
 import { addUploadedGif, getUploadedIds, renderFailure, renderSuccess, renderUploadedGifs } from '../events/upload-events.js';
-
+ 
 /**
  * Loads GIFs based on the search term from the Giphy API.
  *
@@ -115,16 +115,6 @@ export const fetchFavorites = async (gifIds) => {
  * @return {Promise<Object>} A promise that resolves to an object containing the data of the GIF
  * @throws {Error} If the request fails
  */
-export const loadDetails = async (id) => {
-  const response = await fetch(getGifByID(id));
-  const result = await response.json();
-
-  if (!response.ok) {
-    throw new Error(`Failed to load gif details for id: ${id}`);
-  }
-
-  return result.data;
-};
 
 /**
  * Fetches the GIFs uploaded by the user from the Giphy API
@@ -138,6 +128,7 @@ export const loadUploadedGifs = async () => {
 
   return result.data;
 };
+
 
 /**
  * Fetches a GIF by name from the Giphy API
@@ -167,3 +158,26 @@ export const loadGifByName = async (name) => {
 
   return result.data;
 };
+
+
+/**
+ * Fetches the details of a single GIF by its ID
+ * @param {string} id The ID of the GIF to fetch
+ * @return {Promise<Object>} A promise that resolves to an object containing the data of the GIF
+ * @throws {Error} If the request fails
+ */
+export const loadDetails = async (id) => {
+  try {
+    const response = await fetch(getGifByID(id));
+    if (!response.ok) {
+      throw new Error("Failed to fetch GIF details");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching GIF details:", error);
+    return {};
+  }
+};
+
+
+ 

@@ -4,7 +4,7 @@ export const toTrendingView = (gifs) => `
   <div class="content">
     ${gifs.data.map(gif => `
       <div class="trending-item">
-        <img src="${gif.images.downsized_large.url}" alt="${gif.title}" />
+        <a href="#${gif.id}" id="details" data-gif-id="${gif.id}"><img src="${gif.images.downsized_large.url}" alt="${gif.title}" /></a>
         <p>${gif.title}</p>
       </div>
     `).join('')}

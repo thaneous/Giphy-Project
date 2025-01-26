@@ -4,9 +4,8 @@ export const toSearchView = (gifs, searchTerm) => `
   <div class="content">
     ${gifs.data.map(gif => `
       <div class="Search-item">
-        <img src="${gif.images.downsized_large.url}" alt="${gif.title}" />
-        <p>${gif.title}</p>
-      </div>
+<a href="#${gif.id}" id="details" data-gif-id="${gif.id}"><img src="${gif.images.downsized_large.url}" alt="${gif.title}" ></img></a>        <p>${gif.title}</p>
+       </div>
     `).join('')}
   </div>
 </div>
