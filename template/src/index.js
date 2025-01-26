@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   loadPage(HOME);
 });
+ 
 
 document.addEventListener("DOMContentLoaded", () => {
   // upload events

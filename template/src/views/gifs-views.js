@@ -17,12 +17,12 @@ export const renderGifDetails = async (id) => {
       <img src="${gifDetails.data.avatar_url}" alt="">
     <p>@${gifDetails.data.username}</p>
     <p>${gifDetails.data.user.display_name}</p>
-    <p>${gifDetails.data.user.description}</p>
-    
+     
 </div>
     `;
   } catch (error) {
     console.error("Error rendering GIF details:", error);
     q(CONTAINER_SELECTOR).innerHTML = `<p>Error loading GIF details. Please try again later.</p>`;
   }
-};
+
+}; 

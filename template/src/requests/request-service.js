@@ -12,7 +12,7 @@ import { addUploadedGif, getUploadedIds, renderFailure, renderSuccess, renderUpl
  */
 export const loadSearchGifs = async (searchTerm = '') => {
   try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm&limit=10`);
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm&limit=20`);
     if (!response.ok) {
       throw new Error("Failed to fetch search GIFs");
     }

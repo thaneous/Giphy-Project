@@ -1,0 +1,62 @@
+  /* Trending order */
+
+#trending {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .trending-item {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .trending-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .trending-item img:hover {
+    opacity: 0.7;
+  }
+
+  /* Search order */
+  #search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .search-item {
+    width: 300px;
+    height: 300px;
+    transition: transform 0.3s ease; 
+}
+
+  
+  .search-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+ 
+.search-item:hover {
+opacity: 0.7    ;}
+  
