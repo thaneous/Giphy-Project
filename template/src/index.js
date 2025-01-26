@@ -1,6 +1,6 @@
 import { API_KEY, HOME, UPLOAD } from "./common/constants.js";
 import { q } from "./events/helpers.js";
-import { loadPage } from "./events/navigation-events.js";
+import { loadPage, renderTrending } from "./events/navigation-events.js";
 import {
   renderFailure,
   renderLoadingView,
@@ -9,6 +9,7 @@ import {
 import { uploadGif } from "./requests/request-service.js";
 import { renderSearchItems } from "./events/search-events.js";
 import { renderGifDetails } from "./views/gifs-views.js";
+ 
 
 document.addEventListener("DOMContentLoaded", () => {
   // add global listener
@@ -38,6 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const gifId = detailsLink.getAttribute("data-gif-id");
       renderGifDetails(gifId);
     }
+    document.addEventListener("click", function(event) {
+      const s = event.target.closest("#homes");
+    
+      if (s) {
+        const gifId = s.getAttribute("data-page"); // Corrected to data-page attribute
+        renderTrending(gifId);
+      }
+    });
+    
     // // show category events
     // if (event.target.classList.contains('view-category-btn')) {
     //   renderCategory(+event.target.getAttribute('data-category-id'));

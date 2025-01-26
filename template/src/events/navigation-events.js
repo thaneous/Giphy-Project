@@ -1,4 +1,4 @@
-import { CONTAINER_SELECTOR, HOME, ABOUT, FAVORITES, TRENDING, UPLOAD } from '../common/constants.js';
+import { CONTAINER_SELECTOR, HOME, ABOUT, FAVORITES, UPLOAD } from '../common/constants.js';
 import { loadTrendingGifs } from '../requests/request-service.js';
 import { toHomeView } from '../views/home-view.js';
 import { q, setActiveNav } from './helpers.js';
@@ -11,10 +11,10 @@ import { toUploadView } from '../views/upload-view.js';
 // public API
 export const loadPage = (page = '') => {
 
-  switch (page) {
+  switch (page) { 
 
-  case TRENDING:
-    setActiveNav(TRENDING);
+  case HOME:
+    setActiveNav(HOME);
     return renderTrending();
 
   case FAVORITES:
@@ -59,7 +59,7 @@ const renderHome = () => {
 };
 
 // render trending
-const renderTrending = () => {
+export const renderTrending = () => {
   loadTrendingGifs()
   .then((data) => {
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(data);
