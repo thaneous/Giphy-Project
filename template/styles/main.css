@@ -32,10 +32,54 @@ body {
     align-items: center;
 }
  
-/* Search Bar Styles */
-.fa  {
-    font-size: 1px;  
+
+/* Nav Button */
+.nav-link {
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    border-radius: 2px;
+    padding: 10px 20px;
+    margin: 15px;
+    color: white;
+    background-color: blueviolet;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: large;
+    font-family: "Roboto", serif;
+    font-weight: 500;
+    font-size: 18px;
+
 }
+
+ 
+.bth-upload{
+    background-color: #a024c0;
+
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        margin: 0.5rem 0;
+    }
+
+    .navbar input[type="text"] {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}
+ 
+
+ 
+ /* Search Bar Styles */
+ 
 .SearchBox {
     display: flex;
     flex-direction: row;
@@ -73,51 +117,6 @@ body {
     color: #888; 
     padding: 16px 00;
 }
-/* Nav Button */
-.nav-link {
-    text-decoration: none;
-    width: auto;
-    height: auto;
-    border-radius: 2px;
-    padding: 10px 20px;
-    margin: 15px;
-    color: white;
-    background-color: blueviolet;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-}
-
- 
-.bth-upload{
-    background-color: #a024c0;
-    font-size: large;
-    font-family: "Roboto", serif;
-    font-weight: 500;
-    font-size: 18px;
-}
-
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar a {
-        margin: 0.5rem 0;
-    }
-
-    .navbar input[type="text"] {
-        margin-top: 0.5rem;
-        width: 100%;
-    }
-}
- 
-
- 
- 
 /* About styles */
 
 #about {
@@ -134,3 +133,26 @@ body {
 }
 
 /* End about styles */
+.error-mess-div {
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(28deg, rgba(253,29,239,1) 0%, rgba(252,176,69,1) 100%);
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin: 1rem;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error-mess {
+    color: white;
+    padding: 1rem;
+    font-size: 24px;
+ 
+}
+

@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const s = event.target.closest("#homes");
     
       if (s) {
-        const gifId = s.getAttribute("data-page"); // Corrected to data-page attribute
+        const gifId = s.getAttribute("data-page");  
         renderTrending(gifId);
       }
     });
