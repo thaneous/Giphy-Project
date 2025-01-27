@@ -10,7 +10,7 @@ export const toAboutView = () => `
   <div class="about-area">
     <h1>About the app</h1>
     <h2>Authors: Nikolay Kodzheykov, Atanas Zaykov, Martin Mesechkov</h2>
-    <h2>Date: 2025</h2>
+    <h2>Date: 27.01.2025</h2>
   </div>
 </div>
 `;

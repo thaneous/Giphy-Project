@@ -14,7 +14,7 @@ export const FULL_HEART = '❤';
 
 export const EMPTY_HEART = '♡';
 
-export const API_KEY = 'RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm';
+export const API_KEY = 'qQ6WPMb5NvMzXTO9r3mbuMBqH6hJOJ9s';
 
 /**
  * A trending GIF endpoint
