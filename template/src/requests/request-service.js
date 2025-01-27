@@ -10,6 +10,7 @@ import { uploadedIdsEndpoint } from '../common/constants.js';
  * @param {string} [searchTerm=''] - The term to search for GIFs.
  * @returns {Promise<Object>} The response object containing the search results.
  * @throws {Error} If the fetch request fails.
+ * @author Nikolay Kodzheykov
  */
 export const loadSearchGifs = async (searchTerm = '') => {
   try {
@@ -175,6 +176,7 @@ export const loadGifByName = async (name) => {
  * @param {string} id The ID of the GIF to fetch
  * @return {Promise<Object>} A promise that resolves to an object containing the data of the GIF
  * @throws {Error} If the request fails
+ * @author Nikolay Kodzheykov
  */
 export const loadDetails = async (id) => {
   try {

@@ -9,6 +9,7 @@ import { q } from './helpers.js';
  *
  * @param {string} searchTerm - The term to search for GIFs.
  * @returns {Promise<void>} A promise that resolves when the search items are rendered.
+ * @author Nikolay Kodzheykov
  */
 export const renderSearchItems = async (searchTerm) => {
   const movies = await loadSearchGifs(searchTerm);

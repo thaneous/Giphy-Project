@@ -10,6 +10,7 @@ import { q } from './helpers.js';
  * and updates the heart icon to a full heart.
  *
  * @param {string} gifId - The unique identifier of the GIF.
+ * @author Nikolay Kodzheykov
  */
 export const toggleFavoriteStatus = (gifId) => {
     const favorites = getFavorites();

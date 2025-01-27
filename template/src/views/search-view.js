@@ -11,6 +11,7 @@ import { renderFavoriteStatus } from '../events/favorites-events.js';
  * @param {string} gifs.data[].title - The title of the GIF.
  * @param {string} searchTerm - The search term used to find the GIFs.
  * @returns {string} The HTML string for the search view.
+ * @author Nikolay Kodzheykov
  */
 export const toSearchView = (gifs, searchTerm) => `
 <div class="search">
