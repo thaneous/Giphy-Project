@@ -1,11 +1,13 @@
 import { CONTAINER_SELECTOR, HOME, ABOUT, FAVORITES, UPLOAD } from '../common/constants.js';
-import { loadTrendingGifs } from '../requests/request-service.js';
+import { fetchFavorites, loadTrendingGifs } from '../requests/request-service.js';
 import { toHomeView } from '../views/home-view.js';
 import { q, setActiveNav } from './helpers.js';
 import { toAboutView } from '../views/about-view.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { renderUploadedGifs } from './upload-events.js';
 import { toUploadView } from '../views/upload-view.js';
+import { getFavorites } from '../data/favorites.js';
+import { toFavoritesView } from '../views/favorites-view.js';
 
 
 // public API
@@ -49,8 +51,6 @@ export const loadPage = (page = '') => {
 
 };
 
- 
-
 
 // private functions
 
@@ -73,13 +73,23 @@ const renderUpload = () => {
 };
 
 
+// render favorites
+const renderFavorites = async () => {
+  const favorites = getFavorites();
+  console.log('Favorites:', favorites);
 
+  const favGifs = await Promise.all(favorites.map(async (id) => {
+    if (!id) {
+      console.error('Invalid gifId:', id);
+      return null;
+    }
+    const gif = await fetchFavorites(id);
+    console.log(`Fetched gif for id ${id}:`, gif);
+    return gif;
+  }));
 
-const renderFavorites = () => {
-  const favoriteMovieIds = getFavorites();
-  const favoriteMovies = favoriteMovieIds.map(getMovieById);
-  const filteredMoviesId = favoriteMovies.filter((x) => x);
-  q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(filteredMoviesId);
+  q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favGifs);
+  console.log('Rendered favorites view.');
 };
 
 const renderAbout = () => {

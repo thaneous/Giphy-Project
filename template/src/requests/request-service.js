@@ -98,10 +98,11 @@ export const loadRandomGif = async () => {
  * @param  {string} gifIds - A comma-separated list of GIF IDs to fetch
  * @return {Promise<Array<Object>>} A promise that resolves to an array of objects containing the data of the GIFs
  */
-export const fetchFavorites = async (gifIds) => {
+export const fetchFavorites = async (gifId) => {
   try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${gifIds}`);
+    const response = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${gifId}`);
     const data = await response.json();
+    console.log('Fetched data:', data);
     return data.data;
   } catch (error) {
     console.error('Error fetching GIF by ID:', error);
@@ -178,6 +179,7 @@ export const loadDetails = async (id) => {
     return {};
   }
 };
+
 
 
  

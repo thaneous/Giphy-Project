@@ -9,6 +9,8 @@ import {
 import { uploadGif } from "./requests/request-service.js";
 import { renderSearchItems } from "./events/search-events.js";
 import { renderGifDetails } from "./views/gifs-views.js";
+import  { toggleFavoriteStatus } from "./events/favorites-events.js";
+
  
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -47,21 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
         renderTrending(gifId);
       }
     });
-    
-    // // show category events
-    // if (event.target.classList.contains('view-category-btn')) {
-    //   renderCategory(+event.target.getAttribute('data-category-id'));
-    // }
 
-    // // show movie events
-    // if (event.target.classList.contains('view-details-btn')) {
-    //   renderMovieDetails(+event.target.getAttribute('data-id'));
-    // }
-
-    // // toggle favorite event
-    // if (event.target.classList.contains('favorite')) {
-    //   toggleFavoriteStatus(+event.target.getAttribute('data-movie-id'));
-    // }
+    // toggle favorite event
+    if (event.target.classList.contains('favorite')) {
+      toggleFavoriteStatus(event.target.getAttribute("data-id"));
+      console.log('Favorite clicked');
+      
+    }
   });
 
   // search events

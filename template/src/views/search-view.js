@@ -1,3 +1,4 @@
+import { renderFavoriteStatus } from '../events/favorites-events.js';
 export const toSearchView = (gifs, searchTerm) => `
 <div class="search">
 <div class="section-info">
@@ -8,6 +9,7 @@ export const toSearchView = (gifs, searchTerm) => `
     ${gifs.data.map(gif => `
       <div class="search-item">
 <a href="#" id="details" data-gif-id="${gif.id}"><img  class="gif-panel" src="${gif.images.downsized_medium.url}" alt="${gif.title}" ></img></a> 
+${renderFavoriteStatus(gif.id)}
        </div>
     `).join('')}
   </div>
