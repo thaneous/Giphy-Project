@@ -9,6 +9,7 @@
   * Shorthand for document.querySelectorAll
   * @param {string} selector 
   * @returns {NodeLists<Element>}
+  * @author Atanas Zaykov
   */
  export const qs = (selector) => document.querySelectorAll(selector);
  

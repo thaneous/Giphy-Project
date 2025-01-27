@@ -32,6 +32,7 @@ export const loadSearchGifs = async (searchTerm = '') => {
  * @param {FormData} formData - the GIF data
  * @return {Promise<void>}
  * @throws {Error} if the request fails
+ * @author Atanas Zaykov
  */
 export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') => {
   try {

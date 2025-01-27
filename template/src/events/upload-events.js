@@ -5,6 +5,7 @@ import { q } from './helpers.js';
 // Events on upload view
 /**
  * The function renders a container on the page, while the upload request is pending
+ * @author Atanas Zaykov
  */
 export const renderLoadingView = () => {
   q('.upload-container').innerHTML = `
@@ -35,6 +36,7 @@ export const renderSuccess = (url) => {
 /**
  * This function renders message in case of failure of the upload event.
  * @param {number} status - The status of the request.
+ * @author Atanas Zaykov
  */
 export const renderFailure = (status = '') => {
   q('.upload-container').innerHTML = `
@@ -56,6 +58,7 @@ export const getUploadedIds = () => [...uploadedIdsArray];
 /**
  * Function for adding newly uploaded GIF using the app.
  * @param {string} gifId - The id you want to add to the uploaded gifs array.
+ * @author Atanas Zaykov
  */
 export const addUploadedGif = (gifId) => {
   if (uploadedIdsArray.find(id => id === gifId)) {
@@ -69,6 +72,7 @@ export const addUploadedGif = (gifId) => {
 /**
  * A function tha is rendering the uploaded gifs by the user asynchronous and
  * returns them using the localStorage.
+ * @author Atanas Zaykov
  */
 export const renderUploadedGifs = async () => {
   if (uploadedIdsArray.length > 0) {
