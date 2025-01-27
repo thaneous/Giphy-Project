@@ -1,5 +1,6 @@
 import { API_KEY, getUploadedURL, getGifByID } from '../common/constants.js';
 import { addUploadedGif, getUploadedIds, renderFailure, renderSuccess, renderUploadedGifs } from '../events/upload-events.js';
+import { uploadedIdsEndpoint } from '../common/constants.js';
  
 /**
  * Loads GIFs based on the search term from the Giphy API.
@@ -59,11 +60,12 @@ export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') =
   }
 };
 
-// eslint-disable-next-line valid-jsdoc
+
 /**
  * Asyncronous getting information about gifs from Giphy API
  * @param {string} searchTerm - the gif that the user is looking for
  * @return Array of objects with the data about each gif
+ * @author Martin Mesechkov
  */
 export const loadTrendingGifs = async () => {
   try {
@@ -97,6 +99,7 @@ export const loadRandomGif = async () => {
  * Fetches an array of GIF objects from the Giphy API by their IDs
  * @param  {string} gifIds - A comma-separated list of GIF IDs to fetch
  * @return {Promise<Array<Object>>} A promise that resolves to an array of objects containing the data of the GIFs
+ * @author Martin Mesechkov
  */
 export const fetchFavorites = async (gifId) => {
   try {
