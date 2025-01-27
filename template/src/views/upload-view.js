@@ -57,7 +57,7 @@ export const toUploadedView = (uploadedGifs) => {
  * @return {string} HTML content for a single uploaded GIF item
  */
   export const toUploadedItemView = (gifInfo) => `
-    <div .gif-item>
+    <div class=".gif-item">
     <a href="#/uploaded/${gifInfo.id}">
     <img class="uploaded-gif" src="${gifInfo.images.fixed_width.url} alt="${gifInfo.title}">
     </a>

@@ -48,3 +48,39 @@ export const renderFavoriteStatus = (gifId) => {
       ? `<span class="favorite active" data-id="${gifId}">${FULL_HEART}</span>`
       : `<span class="favorite" data-id="${gifId}">${EMPTY_HEART}</span>`;
 };
+
+
+
+
+export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') => {
+  try {
+    let endpoint;
+    if (sourceUrl) {
+      endpoint = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&source_image_url=${sourceUrl}&tags=${tags}`;
+    } else {
+      endpoint = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&tags=${tags}`;
+    }
+
+    console.log('Uploading to endpoint:', endpoint);
+    console.log('FormData:', formData);
+
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+    const id = await result.data.id;
+
+    if (response.status === 200) {
+      renderSuccess(url || sourceUrl);
+      addUploadedGif(id);
+      await renderUploadedGifs();
+    } else if (response.status >= 400 && response.status <= 500) {
+      renderFailure(response.status);
+    }
+  } catch (error) {
+    console.error(error);
+    renderFailure();
+  }
+};

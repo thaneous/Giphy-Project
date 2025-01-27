@@ -35,7 +35,17 @@ export const loadSearchGifs = async (searchTerm = '') => {
  */
 export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') => {
   try {
-    const response = await fetch(getUploadedURL(url, sourceUrl, tags), {
+    let endpoint;
+    if (sourceUrl) {
+      endpoint = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&source_image_url=${sourceUrl}&tags=${tags}`;
+    } else {
+      endpoint = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&tags=${tags}`;
+    }
+
+    console.log('Uploading to endpoint:', endpoint);
+    console.log('FormData:', formData);
+
+    const response = await fetch(endpoint, {
       method: 'POST',
       body: formData,
     });
@@ -43,12 +53,8 @@ export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') =
     const result = await response.json();
     const id = await result.data.id;
 
-    if (url && response.status === 200) {
-      renderSuccess(url);
-      addUploadedGif(id);
-      await renderUploadedGifs();
-    } else if (sourceUrl && response.status === 200) {
-      renderSuccess(sourceUrl);
+    if (response.status === 200) {
+      renderSuccess(url || sourceUrl);
       addUploadedGif(id);
       await renderUploadedGifs();
     } else if (response.status >= 400 && response.status <= 500) {
@@ -59,7 +65,6 @@ export const uploadGif = async (url = '', sourceUrl = '', tags, formData = '') =
     renderFailure();
   }
 };
-
 
 /**
  * Asyncronous getting information about gifs from Giphy API

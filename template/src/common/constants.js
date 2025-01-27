@@ -14,7 +14,7 @@ export const FULL_HEART = '❤';
 
 export const EMPTY_HEART = '♡';
 
-export const API_KEY = 'rJzyf2x2ZzmlX8nNVtSEClAZDHnGzdPm';
+export const API_KEY = 'RHMLfOATCOAgvXJQCv7mcA60ShmBkKpm';
 
 /**
  * A trending GIF endpoint
@@ -54,8 +54,6 @@ https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
 export const getUploadedURL = (url, sourceUrl, tags) => {
   return `https://api.giphy.com/v1/gifs/upload?api_key=${API_KEY}&source_image_url=${sourceUrl}&tags=${tags}`;
 };
-
-
 /**
  * A GIF by ID endpoint
  * @param {string} id - the ID of the GIF
