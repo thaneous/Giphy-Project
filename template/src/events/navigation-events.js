@@ -1,7 +1,6 @@
 import { CONTAINER_SELECTOR, HOME, ABOUT, FAVORITES, UPLOAD } from '../common/constants.js';
 import { fetchFavorites, loadTrendingGifs } from '../requests/request-service.js';
-import { toHomeView } from '../views/home-view.js';
-import { q, setActiveNav } from './helpers.js';
+ import { q, setActiveNav } from './helpers.js';
 import { toAboutView } from '../views/about-view.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { renderUploadedGifs } from './upload-events.js';
@@ -11,6 +10,13 @@ import { toFavoritesView } from '../views/favorites-view.js';
 
 
 // public API
+/**
+ * Loads the specified page and performs the necessary actions to render it.
+ *
+ * @param {string} [page=''] - The name of the page to load. Possible values are 'HOME', 'FAVORITES', 'UPLOAD', and 'ABOUT'.
+ * 
+ * @returns {void|null} - Returns the result of the render function for the specified page, or null if the page is not recognized.
+ */
 export const loadPage = (page = '') => {
 
   switch (page) { 
@@ -54,9 +60,7 @@ export const loadPage = (page = '') => {
 
 // private functions
 
-const renderHome = () => {
-  q(CONTAINER_SELECTOR).innerHTML = toHomeView();
-};
+ 
 
 // render trending
 export const renderTrending = () => {

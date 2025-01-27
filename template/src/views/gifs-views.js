@@ -2,6 +2,13 @@ import { loadDetails } from '../requests/request-service.js';
 import { q } from '../events/helpers.js';
 import { CONTAINER_SELECTOR } from '../common/constants.js';
 
+/**
+ * Renders the details of a GIF by its ID.
+ *
+ * @param {string} id - The ID of the GIF to load and render details for.
+ * @returns {Promise<void>} A promise that resolves when the GIF details have been rendered.
+ * @throws Will log an error message to the console and display an error message in the container if loading the GIF details fails.
+ */
 export const renderGifDetails = async (id) => {
   try {
     const gifDetails = await loadDetails(id);

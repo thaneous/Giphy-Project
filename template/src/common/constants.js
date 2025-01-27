@@ -68,6 +68,12 @@ export const getGifByID = (id) => `https://api.giphy.com/v1/gifs/${id}?api_key=$
  * @param  {...any} ids - A list of ids
  * @return {string} The endpoint link
  */
+/**
+ * Constructs the endpoint URL for uploading GIFs to Giphy with the provided IDs.
+ *
+ * @param {...string} ids - The IDs of the GIFs to be uploaded.
+ * @returns {string} The constructed endpoint URL.
+ */
 export const uploadedIdsEndpoint = (...ids) => `
 https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${ids}`;
 

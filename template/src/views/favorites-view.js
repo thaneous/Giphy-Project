@@ -1,6 +1,23 @@
 import { renderFavoriteStatus } from '../events/favorites-events.js';
 import { API_KEY } from '../common/constants.js';
 
+/**
+ * Generates the HTML markup for the favorites view.
+ *
+ * @param {Array} gifs - An array of GIF objects to be displayed as favorites.
+ * @returns {string} The HTML string representing the favorites view.
+ *
+ * Each GIF object in the array should have the following structure:
+ * {
+ *   id: {string} - The unique identifier for the GIF.
+ *   images: {object} - An object containing image URLs for the GIF.
+ *   title: {string} - The title of the GIF.
+ * }
+ *
+ * The function filters out any invalid GIF objects (those without an id),
+ * and maps each valid GIF to an HTML string. If there are no valid GIFs,
+ * a message indicating no favorite GIFs are found is displayed.
+ */
 export const toFavoritesView = (gifs) => `
 <div id="gifs">
    <div class="fav-content">

@@ -1,4 +1,17 @@
 import { renderFavoriteStatus } from '../events/favorites-events.js';
+/**
+ * Generates the HTML for the search view.
+ *
+ * @param {Object} gifs - The object containing GIF data.
+ * @param {Array} gifs.data - The array of GIF objects.
+ * @param {string} gifs.data[].id - The unique identifier for the GIF.
+ * @param {Object} gifs.data[].images - The images object for the GIF.
+ * @param {Object} gifs.data[].images.downsized_medium - The downsized medium image object.
+ * @param {string} gifs.data[].images.downsized_medium.url - The URL of the downsized medium image.
+ * @param {string} gifs.data[].title - The title of the GIF.
+ * @param {string} searchTerm - The search term used to find the GIFs.
+ * @returns {string} The HTML string for the search view.
+ */
 export const toSearchView = (gifs, searchTerm) => `
 <div class="search">
 <div class="section-info">

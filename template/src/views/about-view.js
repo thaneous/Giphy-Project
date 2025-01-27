@@ -1,4 +1,9 @@
 //about
+/**
+ * Generates the HTML content for the About view of the app.
+ *
+ * @returns {string} The HTML string for the About view.
+ */
 export const toAboutView = () => `
 <div id="about">
   <div class="about-area">

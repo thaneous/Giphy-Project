@@ -1,9 +1,14 @@
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
+/**
+ * Adds a GIF ID to the list of favorites if it is not already present.
+ * Updates the local storage with the new list of favorites.
+ *
+ * @param {string} gifId - The ID of the GIF to add to the favorites list.
+ */
 export const addFavorite = (gifId) => {
     if (favorites.find(id => id === gifId)) {
-      // Gif has already been added to favorites
-      return;
+       return;
     }
   
     favorites.push(gifId);
