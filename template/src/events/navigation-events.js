@@ -15,6 +15,7 @@ import { toFavoritesView } from '../views/favorites-view.js';
  * @param {string} [page=''] - The name of the page to load. Possible values are 'HOME', 'FAVORITES', 'UPLOAD', and 'ABOUT'.
  * 
  * @returns {void|null} - Returns the result of the render function for the specified page, or null if the page is not recognized.
+ * @author Atanas Zaykov
  */
 export const loadPage = (page = '') => {
 

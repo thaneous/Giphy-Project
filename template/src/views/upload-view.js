@@ -7,6 +7,7 @@
  * - a submit button
  * - a container for displaying the uploaded GIFs
  * @return {string} HTML content for the upload page
+ * @author Atanas Zaykov
  */
 export const toUploadView = () => `
 <div class="bg">
@@ -43,6 +44,7 @@ export const toUploadView = () => `
  * Returns an HTML template string for all uploaded GIFs.
  * @param {Array<Object>} uploadedGifs - Array of objects containing GIF metadata
  * @return {string} HTML content for all uploaded GIFs
+ * @author Atanas Zaykov
  */
 export const toUploadedView = (uploadedGifs) => {
     return `
@@ -55,6 +57,7 @@ export const toUploadedView = (uploadedGifs) => {
  * Returns an HTML template string for a single uploaded GIF item.
  * @param {Object} gifInfo - object containing GIF metadata
  * @return {string} HTML content for a single uploaded GIF item
+ * @author Atanas Zaykov
  */
   export const toUploadedItemView = (gifInfo) => `
     <div .gif-item>
@@ -67,6 +70,7 @@ export const toUploadedView = (uploadedGifs) => {
 /**
  * Returns an HTML template string for displaying a message when there are no uploaded GIFs.
  * @return {string} HTML content indicating no uploads are available.
+ * @author Atanas Zaykov
  */
 
     export const toEmptyUploadedView = () => `

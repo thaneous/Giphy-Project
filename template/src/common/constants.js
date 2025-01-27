@@ -21,6 +21,7 @@ export const API_KEY = 'rJzyf2x2ZzmlX8nNVtSEClAZDHnGzdPm';
  * @param {number} limit - the limit of gifs shown on the page
  * @param {number} offset Specifies the starting position of the results.
  * @return {string} The endpoint link
+ * @author Atanas Zaykov
  */
 export const getTrendingURL = (limit = 25, offset = 0) => `
 https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&offset=${offset}&rating=g`;
@@ -31,6 +32,7 @@ https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&offset=
  * @param {number} limit - the limit of gifs shown on the page
  * @param {*} offset Specifies the starting position of the results.
  * @return {string} The endpoint link
+ * @author Atanas Zaykov
  */
 export const getSearchGifs = (q='', limit = 20, offset = 0) => `
 https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${q}&limit=${limit}&offset=${offset}&rating=g`;
@@ -39,6 +41,7 @@ https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${q}&limit=${limit}&of
 /**
  * A random GIF endpoint
  * @return {string} The endpoint link
+ * @author Atanas Zaykov
  */
 export const getRandomGifs = () => `
 https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
@@ -50,6 +53,7 @@ https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
  * @param {string} sourceUrl - a URL of the GIF on the user's website
  * @param {string} tags - comma separated list of tags
  * @return {string} The endpoint link
+ * @author Atanas Zaykov
  */
 export const getUploadedURL = (url, sourceUrl, tags) => {
   return `https://api.giphy.com/v1/gifs/upload?api_key=${API_KEY}&source_image_url=${sourceUrl}&tags=${tags}`;
@@ -60,6 +64,7 @@ export const getUploadedURL = (url, sourceUrl, tags) => {
  * A GIF by ID endpoint
  * @param {string} id - the ID of the GIF
  * @return {string} The endpoint link
+ * @author Atanas Zaykov
  */
 export const getGifByID = (id) => `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}&rating=g`;
 
@@ -73,6 +78,7 @@ export const getGifByID = (id) => `https://api.giphy.com/v1/gifs/${id}?api_key=$
  *
  * @param {...string} ids - The IDs of the GIFs to be uploaded.
  * @returns {string} The constructed endpoint URL.
+ * @author Atanas Zaykov
  */
 export const uploadedIdsEndpoint = (...ids) => `
 https://upload.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${ids}`;
