@@ -3,6 +3,7 @@
  * Generates the HTML content for the About view of the app.
  *
  * @returns {string} The HTML string for the About view.
+ * @author Martin Mesechkov Nikolai Kodzheykov
  */
 export const toAboutView = () => `
 <div id="about">

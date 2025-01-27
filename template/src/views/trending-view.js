@@ -11,6 +11,7 @@ import { renderFavoriteStatus } from '../events/favorites-events.js';
  * @param {string} gifs.data[].images.downsized_large.url - The URL of the downsized large image.
  * @param {string} gifs.data[].title - The title of the GIF.
  * @returns {string} The HTML markup for the trending view section.
+ * @author Martin Mesechkov
  */
 export const toTrendingView = (gifs) => `
 <div id="trending">

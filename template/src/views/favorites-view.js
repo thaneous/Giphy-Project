@@ -17,6 +17,7 @@ import { API_KEY } from '../common/constants.js';
  * The function filters out any invalid GIF objects (those without an id),
  * and maps each valid GIF to an HTML string. If there are no valid GIFs,
  * a message indicating no favorite GIFs are found is displayed.
+ * @author Martin Mesechkov
  */
 export const toFavoritesView = (gifs) => `
 <div id="gifs">
