@@ -8,7 +8,6 @@ import { toUploadView } from '../views/upload-view.js';
 import { getFavorites } from '../data/favorites.js';
 import { toFavoritesView } from '../views/favorites-view.js';
 
-
 // public API
 /**
  * Loads the specified page and performs the necessary actions to render it.
@@ -57,10 +56,7 @@ export const loadPage = (page = '') => {
 
 };
 
-
 // private functions
-
- 
 
 // render trending
 /**
@@ -89,7 +85,6 @@ const renderUpload = () => {
   q(CONTAINER_SELECTOR).innerHTML = toUploadView();
   renderUploadedGifs();
 };
-
 
 // render favorites
 /**
