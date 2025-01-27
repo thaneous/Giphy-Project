@@ -103,7 +103,7 @@ export const fetchFavorites = async (gifId) => {
     const response = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${gifId}`);
     const data = await response.json();
     console.log('Fetched data:', data);
-    return data.data;
+    return data.data[0]; 
   } catch (error) {
     console.error('Error fetching GIF by ID:', error);
     return null;

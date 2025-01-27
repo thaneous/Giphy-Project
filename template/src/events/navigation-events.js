@@ -88,7 +88,7 @@ const renderFavorites = async () => {
     return gif;
   }));
 
-  q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favGifs);
+  q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favGifs.filter(gif => gif !== null));
   console.log('Rendered favorites view.');
 };
 
