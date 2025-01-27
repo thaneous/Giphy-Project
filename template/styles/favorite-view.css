@@ -1,0 +1,102 @@
+.fav-content {
+    padding: 20px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;  
+    align-items: center;  
+    width: 100%; 
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.favorite-item {
+    background-color: var(--white-color);
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+    width: 100%; 
+    max-width: 300px; /* Adjusted for even sizing */
+    height: auto;
+    max-height: 300px; /* Adjusted for even sizing */
+}
+
+#gifs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;  
+    align-items: center;  
+    width: 100%; 
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        margin: 0.5rem 0;
+    }
+
+    .navbar input[type="text"] {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    .fav-content, #gifs {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.favorite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff4081;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;  
+}
+
+.favorite:hover {
+    background-color: #e91e63;
+}
+
+.favorite.active {
+    background-color: #ff4081;
+    color: white;
+}
+
+.trending-item, .search-item, .favorite-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%; 
+    max-width: 300px; /* Adjusted for even sizing */
+    height: auto;
+    max-height: 300px; /* Adjusted for even sizing */
+}
+
+.trending-item img, .search-item img, .favorite-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.trending-item .favorite, .search-item .favorite, .favorite-item .favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

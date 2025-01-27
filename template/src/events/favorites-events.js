@@ -22,10 +22,10 @@ export const toggleFavoriteStatus = (gifId) => {
     }
   };
 
-  export const renderFavoriteStatus = (gifId) => {
+export const renderFavoriteStatus = (gifId) => {
     const favorites = getFavorites();
   
     return favorites.includes(gifId)
       ? `<span class="favorite active" data-id="${gifId}">${FULL_HEART}</span>`
       : `<span class="favorite" data-id="${gifId}">${EMPTY_HEART}</span>`;
-  };
+};
