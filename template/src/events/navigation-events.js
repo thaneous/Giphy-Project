@@ -63,6 +63,16 @@ export const loadPage = (page = '') => {
  
 
 // render trending
+/**
+ * Renders the trending GIFs by loading them and updating the container's inner HTML.
+ * 
+ * This function fetches the trending GIFs using the `loadTrendingGifs` function,
+ * then updates the inner HTML of the container specified by `CONTAINER_SELECTOR`
+ * with the result of the `toTrendingView` function.
+ * 
+ * @returns {void}
+ * @author Martin Mesechkov
+ */
 export const renderTrending = () => {
   loadTrendingGifs()
   .then((data) => {
@@ -71,6 +81,10 @@ export const renderTrending = () => {
 };
 
 //render upload
+/**
+ * Renders the upload view by setting the inner HTML of the container
+ * to the upload view template and then renders the uploaded GIFs.
+ */
 const renderUpload = () => {
   q(CONTAINER_SELECTOR).innerHTML = toUploadView();
   renderUploadedGifs();
@@ -78,6 +92,18 @@ const renderUpload = () => {
 
 
 // render favorites
+/**
+ * Renders the favorite GIFs by fetching them based on their IDs.
+ * 
+ * This function retrieves the list of favorite GIF IDs, fetches the corresponding GIFs,
+ * and then updates the DOM to display these favorite GIFs. It handles invalid IDs by
+ * logging an error and excluding them from the final rendered view.
+ * 
+ * @async
+ * @function renderFavorites
+ * @returns {Promise<void>} A promise that resolves when the favorite GIFs have been rendered.
+ * @author Martin Mesechkov
+ */
 const renderFavorites = async () => {
   const favorites = getFavorites();
   console.log('Favorites:', favorites);
