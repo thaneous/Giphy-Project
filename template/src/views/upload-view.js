@@ -9,26 +9,35 @@
  * @return {string} HTML content for the upload page
  */
 export const toUploadView = () => `
+<div class="bg">
+
 <div class="parent-upload">
 <div class="upload-container">
 <h2>Upload your own GIF</h2>
 <form id="form">
-        <input class="upload-element" id="file" type="file" accept="image/gif">
+<div class="upload-elm-div">
+<i class="icon fa-solid fa-video fa-xl" style="color: #ffffff;"></i>
+  <h3 class="big-title">GIF</h3>
+  <p class="small-title">Upload GIF</p>
+  <input class="upload-element" id="file" type="file" accept="image/gif">
+</div>
 
-        <label class="label" for="tags">Tags</label>
-        <input class="upload-element" id="tags" type="text" name="tags">
-        
-        <label class="label" for="url">URL Upload (Optional)</label>
-        <input class="upload-element" id="url" type="url" name="url">
-        
-        <br>
-        <button id="upload" type="submit">UPLOAD</button>
+  <label class="label" for="tags">Tags</label>
+  <input class="upload-element" id="tags" type="text" name="tags">
+  
+  <label class="label" for="url">URL Upload (Optional)</label>
+  <input class="upload-element" id="url" type="url" name="url">
+  
+  <br>
+  <button class="upload-element" id="upload" type="submit">UPLOAD</button>
     </form>
 </div>
 <div class="uploaded-container-outer">
 <h2>Uploaded GIFs</h2>
 <div class="uploaded-container-inner"></div>
-</div>`;
+</div>
+</div>
+`;
 
 /**
  * Returns an HTML template string for all uploaded GIFs.
